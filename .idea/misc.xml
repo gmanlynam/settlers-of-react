@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="JSX" />
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="modificationStamps">
+      <map>
+        <entry key="$PROJECT_DIR$/../sec-auth-jwt" value="1487779135000" />
+        <entry key="$PROJECT_DIR$/../sec-jwt-gateway" value="1487006493000" />
+        <entry key="$PROJECT_DIR$/../svc-auth-jwt" value="1486728425000" />
+        <entry key="$PROJECT_DIR$/../svc-sec-jwt" value="1486729783000" />
+        <entry key="$PROJECT_DIR$/../testbed/svc-sec-jwt" value="1487006493000" />
+      </map>
+    </option>
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../svc-ntsa-user-stub" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+</project>
