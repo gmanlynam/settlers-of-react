@@ -9,9 +9,6 @@ function Tile(props) {
             </button>
         );
     } else {
-        if (props.currentRoll && props.currentRoll === props.diceValue) {
-            props.produceResources({type: props.type});
-        }
         return (
             <button className={`square ${props.type}`}>
                 {props.diceValue}
@@ -36,7 +33,6 @@ class Board extends React.Component {
                 diceValue={this.props.tiles[tileNumber].number}
                 type={this.props.tiles[tileNumber].type}
                 currentRoll={this.props.currentRoll}
-                produceResources={this.props.produceResources}
             />
         );
     }
@@ -130,15 +126,6 @@ class Game extends React.Component {
             }
         };
     }
-    produceResource = (tileResources) => {
-        console.log("I produced resources of " + tileResources.type);
-        console.log("I produced resources for " + this.state.player.cards);
-        this.setState({
-            player: {
-                cards: [tileResources.type]
-            }
-        });
-    };
     handleClick(i) {
     }
     render() {
@@ -149,7 +136,6 @@ class Game extends React.Component {
                         onClick={(i) => this.handleClick(i)}
                         tiles={this.state.tiles}
                         currentRoll={this.state.currentRoll}
-                        produceResources={this.produceResource}
                     />
                 </div>
                 <div className="game-info">
@@ -167,6 +153,15 @@ class Game extends React.Component {
     handleRoll() {
         const roll = Math.ceil(Math.random() * 6);
         this.setState({currentRoll: roll});
+        this.state.tiles.forEach(tile => {
+            if (tile.number === roll) {
+                this.setState({
+                    player: {
+                        cards: this.state.player.cards.concat([tile.type])
+                    }
+                });
+            }
+        })
     }
 }
 
