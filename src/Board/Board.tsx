@@ -1,19 +1,29 @@
 import Node from "./Node";
 import Connector from "./Connector";
+import * as React from "react";
+import SeaBorder from "./SeaBorder";
+import Tile from "./Tile"
+interface BoardProps {
+    tiles: any
+    currentRoll: any
+}
+export default class Board extends React.Component<BoardProps> {
 
-class Board extends React.Component {
+    nodes: Map<number, Node> = new Map;
 
-    nodes: Map<number, Node>;
+    constructor(props: BoardProps) {
+        super(props)
+    }
 
     componentDidMount() {
         let one = new Node();
         let two = new Node();
         let three = new Node();
         one.setSiblings([two, three]);
-        one.setConnectors([new Connector(null, two), new Connector(null, three)]);
+        one.setConnectors([new Connector({}, two), new Connector({}, three)]);
         this.nodes.set(0, one);
     }
-    renderSquare(tileNumber) {
+    renderSquare(tileNumber: number) {
         return (
             <Tile
                 diceValue={this.props.tiles[tileNumber].number}
@@ -67,12 +77,12 @@ class Board extends React.Component {
     );
     }
 
-    renderSeaBorder(orientation) {
+    renderSeaBorder(orientation: any) {
         return (
             <SeaBorder
                 orientation={orientation}
-        tradingPosts={"3:1 Sheep"}
-        />
+                tradingPosts={"3:1 Sheep"}
+            />
     );
     }
 

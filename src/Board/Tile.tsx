@@ -1,4 +1,5 @@
-function Tile(props) {
+import React, { Component }  from 'react';
+export default function Tile(props: any) {
     if (props.isSand) {
         return (
             <div className="hex sand">
